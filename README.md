@@ -1,3 +1,3 @@
 # Node Microservice
 
-[![Build Status](https://e4376a54.ngrok.io/api/badges/ThinkExpedite/node-microservice/status.svg)](https://e4376a54.ngrok.io/ThinkExpedite/node-microservice)
+[![Build Status](https://682d3f66.ngrok.io/api/badges/ThinkExpedite/node-microservice/status.svg)](https://682d3f66.ngrok.io/ThinkExpedite/node-microservice)
