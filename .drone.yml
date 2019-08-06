@@ -5,7 +5,7 @@ steps:
 - name: start-notify
   image: plugins/slack
   settings:
-    webhook: https://hooks.slack.com/services/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
+    webhook: https://hooks.slack.com/services/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
     channel: cicd
     template: >
         Build {{build.number}} of {{build.branch}} started. {{build.link}}
@@ -16,7 +16,7 @@ steps:
 - name: publish
   image: plugins/docker
   settings:
-    repo: nazmulb/node-microservice
+    repo: thinkexpedite/node-microservice
     auto_tag: true
     username:
       from_secret: docker_username
@@ -28,11 +28,11 @@ steps:
   - sh ./.drone/deploy.sh
   volumes:
   - name: docker
-    path: /var/run/docker.sock
+    path: /private/var/run/docker.sock
 - name: end-notify
   image: plugins/slack
   settings:
-    webhook: https://hooks.slack.com/services/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
+    webhook: https://hooks.slack.com/services/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
     channel: cicd
     template: >
       {{#success build.status}}
@@ -43,4 +43,4 @@ steps:
 volumes:
 - name: docker
   host:
-    path: /var/run/docker.sock      
+    path: /private/var/run/docker.sock      
