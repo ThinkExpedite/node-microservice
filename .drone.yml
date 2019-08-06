@@ -6,7 +6,7 @@ steps:
   image: plugins/slack
   settings:
     webhook: https://hooks.slack.com/services/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
-    channel: cicd
+    channel: drone-cicd
     template: >
         Build {{build.number}} of {{build.branch}} started. {{build.link}}
 - name: build
@@ -26,14 +26,14 @@ steps:
   image: docker
   commands:
   - sh ./.drone/deploy.sh
-#  volumes:
-#  - name: docker
-#    path: /private/var/run/docker.sock
+  volumes:
+  - name: docker
+    path: /var/run/docker.sock
 - name: end-notify
   image: plugins/slack
   settings:
     webhook: https://hooks.slack.com/services/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
-    channel: cicd
+    channel: drone-cicd
     template: >
       {{#success build.status}}
         Build {{build.number}} of {{build.branch}} successful. {{build.link}}
