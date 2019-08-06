@@ -26,9 +26,9 @@ steps:
   image: docker
   commands:
   - sh ./.drone/deploy.sh
-  volumes:
-  - name: docker
-    path: /private/var/run/docker.sock
+#  volumes:
+#  - name: docker
+#    path: /private/var/run/docker.sock
 - name: end-notify
   image: plugins/slack
   settings:
@@ -40,7 +40,7 @@ steps:
       {{else}}
         Build {{build.number}} of {{build.branch}} failed. Please fix!. {{build.link}}
       {{/success}}
-volumes:
-- name: docker
-  host:
-    path: /private/var/run/docker.sock      
+#volumes:
+#- name: docker
+#  host:
+#    path: /private/var/run/docker.sock      
